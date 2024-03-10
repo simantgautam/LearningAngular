@@ -1,0 +1,50 @@
+<h1>Question No. 1</h1>
+<hr />
+<div>
+  <h1>{{ pageTitle }}</h1>
+  <h2>{{ a + b }}</h2>
+  <h3>{{ a + b + 10 }}</h3>
+</div>
+<hr />
+
+<h1>Question No. 2</h1>
+<hr />
+
+<div>
+  <div>
+    <img [src]="imageUrl" alt="" height="200px" width="200px" />
+  </div>
+  <button
+    style="padding: 10px; cursor: pointer"
+    [disabled]="disable"
+    (click)="toggleChange()"
+  >
+    Buttom
+  </button>
+</div>
+
+<hr />
+<h1>Question No. 3</h1>
+
+<div>
+  <button (click)="onClick()" style="padding: 10px">Click Me</button>
+</div>
+
+<br />
+<hr />
+<h1>Question No. 4</h1>
+
+<div>
+  <h3>{{ username }}</h3>
+  <input type="text" [(ngModel)]="username" />
+  <button (click)="onSubmit()">Submit</button>
+</div>
+
+<br />
+<hr />
+<h1>Question No. 5</h1>
+
+<h1 [style.color]="isError ? 'red' : 'green'">Conditional Styling</h1>
+<button (click)="onChange()">Change Color</button>
+
+<br /><br /><br />
