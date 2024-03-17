@@ -1,3 +1,47 @@
 <div>
   <app-controller></app-controller>
+  <h1>DIRECTIVES-1</h1>
+  <h1 style="cursor: pointer">Highlight Directive</h1>
+
+  <hr />
+
+  <h2>DIRECTIVES-2</h2>
+  <p [class]="isDisplay ? 'DisplayBlock' : 'HiddenBlock'">
+    Paragraph to be Hide And Show
+  </p>
+  <button (click)="togglePara()">Click</button>
+
+  <hr />
+  <h2>DIRECTIVES-3</h2>
+  <ul *ngFor="let item of products">
+    <li>{{ item.name }}</li>
+    <li>{{ item.price }}</li>
+    <li *ngIf="item.available; else unavailable" style="color: green">
+      Available
+    </li>
+  </ul>
+</div>
+
+<ng-template #unavailable>
+  <li style="color: red">Not Available</li>
+</ng-template>
+
+<hr />
+<h2>DIRECTIVES-4</h2>
+<div>
+  <input type="text" [(ngModel)]="search" placeholder="Search..." />
+  <button (click)="searchProduct()">Search</button>
+  <h3 *ngFor="let item of SearchData">{{ item.name }}</h3>
+</div>
+
+<hr />
+<h2>DIRECTIVES-5</h2>
+<div>
+  <ul *ngFor="let item of products">
+    <li>{{ item.name }}</li>
+    <li>{{ item.price }}</li>
+    <li [ngClass]="item.available ? 'backgroundGreen' : 'backgroundRed'">
+      {{ item.available }}
+    </li>
+  </ul>
 </div>

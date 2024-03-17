@@ -1,0 +1,17 @@
+.DisplayBlock {
+  display: block;
+  color: red;
+}
+
+.HiddenBlock {
+  visibility: hidden;
+  color: blue;
+}
+
+.backgroundGreen {
+  background-color: green;
+}
+
+.backgroundRed {
+  background-color: red;
+}
