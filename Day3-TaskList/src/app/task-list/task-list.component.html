@@ -1,0 +1,4 @@
+<app-task-add (newTaskObj)="handleTaskAdded($event)"></app-task-add>
+<div *ngFor="let task of tasks">
+  <app-task [task]="task"></app-task>
+</div>

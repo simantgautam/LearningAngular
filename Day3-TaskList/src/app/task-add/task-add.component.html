@@ -1,0 +1,31 @@
+<div
+  style="
+    width: 250px;
+    box-shadow: 0 0 10px 0;
+    padding: 20px;
+    padding-bottom: 30px;
+  "
+>
+  <h3 style="text-align: center">Add New Task</h3>
+  <form action="">
+    <label
+      for="newTask"
+      style="padding-bottom: 10px; font-size: 16px; font-weight: bold"
+      >Title</label
+    ><br />
+    <input
+      type="text"
+      id="newTask"
+      [(ngModel)]="newTask"
+      name="newTask"
+      placeholder="Add Title"
+      style="margin: 5px 5px 20px 0px; width: 100%; padding: 5px"
+    />
+    <br />
+    <button (click)="addTask()">Add New Task</button>
+  </form>
+</div>
+
+<!-- <h1>
+  {{ newTask }}
+</h1> -->

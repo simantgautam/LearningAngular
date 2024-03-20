@@ -1,0 +1,7 @@
+<div style="display: flex; align-items: center; gap: 10px; margin: 20px">
+  <input type="checkbox" [(ngModel)]="completed" (click)="changeStatus()" />
+  <h3 style="margin: 10px">{{ task.title }}</h3>
+  <p *ngIf="task.completed; else notComplete">completed</p>
+</div>
+
+<ng-template #notComplete>Not Completed</ng-template>
