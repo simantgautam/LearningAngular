@@ -13,7 +13,7 @@ export const routes: Routes = [
     path: 'product',
     children: [
       {
-        path: 'productDetail',
+        path: 'productDetail/:id',
         title: 'Product | Product Detail',
         component: ProductDetailsComponent,
       },
