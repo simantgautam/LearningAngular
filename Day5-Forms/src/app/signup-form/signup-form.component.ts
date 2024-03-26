@@ -30,7 +30,7 @@ export class SignupFormComponent {
     const pass = this.signUpForm.controls['password'].value;
     const confirmPass = this.signUpForm.controls['confirmPassword'].value;
     if (pass === confirmPass) {
-      console.log(this.signUpForm.value);
+      console.log(this.signUpForm);
       const data = this.signUpForm.value;
       localStorage.setItem('formData', JSON.stringify(data));
       this.signUpForm.reset();
