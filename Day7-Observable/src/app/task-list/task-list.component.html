@@ -1,0 +1,32 @@
+<div style="width: 80%; margin: auto">
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due Date</th>
+        <th>Delete</th>
+        <th>Status</th>
+        <th>Mark as Complete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of taskList">
+        <td>{{ task.id }}</td>
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.dueDate }}</td>
+        <td style="cursor: pointer" (click)="deleteTask(task.id)">Delete</td>
+        <td *ngIf="task.status; else notComplete">Completed</td>
+        <td>
+          <input type="checkbox" (click)="completion($event)" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #notComplete>
+  <td>Not Completed</td>
+</ng-template>

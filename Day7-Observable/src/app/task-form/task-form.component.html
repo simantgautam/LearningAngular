@@ -1,0 +1,62 @@
+<form
+  action=""
+  [formGroup]="taskForm"
+  (ngSubmit)="onSubmit()"
+  style="width: 400px; margin: 50px auto; padding: 20px"
+>
+  <div>
+    <label for="title" class="block text-lg font-medium leading-6 text-gray-900"
+      >Title</label
+    >
+    <div class="relative mt-2 mb-4 rounded-md shadow-sm">
+      <input
+        type="text"
+        name="title"
+        id="title"
+        formControlName="title"
+        class="block w-full rounded-md border-0 py-1.5 pl-2 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        placeholder="Enter new task"
+      />
+    </div>
+  </div>
+  <div>
+    <label
+      for="description"
+      class="block text-lg font-medium leading-6 text-gray-900"
+      >Description</label
+    >
+    <div class="relative mt-2 mb-4 rounded-md shadow-sm">
+      <input
+        type="text"
+        name="description"
+        id="description"
+        formControlName="description"
+        class="block w-full rounded-md border-0 py-1.5 pl-2 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        placeholder="Enter task description"
+      />
+    </div>
+  </div>
+  <div>
+    <label
+      for="dueDate"
+      class="block text-lg font-medium leading-6 text-gray-900"
+      >Due Date</label
+    >
+    <div class="relative mt-2 mb-4 rounded-md shadow-sm">
+      <input
+        type="date"
+        name="dueDate"
+        id="dueDate"
+        formControlName="dueDate"
+        class="block w-full rounded-md border-0 py-1.5 pl-2 pr-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      />
+    </div>
+  </div>
+  <button
+    type="submit"
+    [disabled]="taskForm.invalid"
+    class="flex-shrink-0 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg mt-10 sm:mt-0"
+  >
+    Button
+  </button>
+</form>
