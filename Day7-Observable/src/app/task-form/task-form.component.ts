@@ -27,7 +27,7 @@ export class TaskFormComponent {
   constructor(private taskService: TaskService) {}
 
   onSubmit() {
-    const taskId = this.taskService.getId() + 1;
+    const taskId = this.taskService.lastAssignedId() + 1;
     const newTask: task = {
       id: taskId,
       title: this.taskForm.controls['title'].value,
@@ -37,5 +37,7 @@ export class TaskFormComponent {
     };
     console.log(newTask);
     this.taskService.addTask(newTask);
+
+    this.taskForm.reset();
   }
 }

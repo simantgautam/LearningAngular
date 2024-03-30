@@ -16,17 +16,43 @@ export class TaskListComponent implements OnInit {
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.taskList = this.taskService.getTasks();
+    this.taskService.getTasks().subscribe((val: any) => {
+      this.taskList = val;
+      console.log(val);
+    });
+
     console.log(this.taskList);
   }
 
   deleteTask(id: number) {
     // console.log(this.taskService.getTasks());
     this.taskService.deleteTask(id);
-    this.taskList = this.taskService.getTasks();
+    this.taskService.getTasks().subscribe((val: any) => {
+      console.log(val);
+    });
   }
 
-  completion(e: any) {
-    console.log(e.target.value);
+  toggle(index: number, id: number) {
+    let isChecked = this.taskList[index].status;
+    isChecked = !isChecked;
+    this.taskService.updateTaskStatus(id, isChecked);
+    console.log(isChecked);
+  }
+
+  handleChange(e: any) {
+    const querry = e.target.value;
+    if (querry === 'completed') {
+      this.taskService
+        .filetTask(true)
+        .subscribe((val: any) => (this.taskList = val));
+    } else if (querry === 'notComplete') {
+      this.taskService
+        .filetTask(false)
+        .subscribe((val: any) => (this.taskList = val));
+    } else {
+      this.taskService
+        .getTasks()
+        .subscribe((val: any) => (this.taskList = val));
+    }
   }
 }

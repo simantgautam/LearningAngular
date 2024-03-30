@@ -1,3 +1,18 @@
+<div style="width: 80%; margin: 30px auto">
+  <div style="width: 200px; border: 1px solid black">
+    <select
+      style="width: 100%"
+      name="filter"
+      id="filter"
+      (change)="handleChange($event)"
+    >
+      <option value="allTask" selected>All Task</option>
+      <option value="completed">Completed</option>
+      <option value="notComplete">Not Complete</option>
+    </select>
+  </div>
+</div>
+
 <div style="width: 80%; margin: auto">
   <table>
     <thead>
@@ -12,7 +27,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let task of taskList">
+      <tr *ngFor="let task of taskList; let i = index">
         <td>{{ task.id }}</td>
         <td>{{ task.title }}</td>
         <td>{{ task.description }}</td>
@@ -20,7 +35,11 @@
         <td style="cursor: pointer" (click)="deleteTask(task.id)">Delete</td>
         <td *ngIf="task.status; else notComplete">Completed</td>
         <td>
-          <input type="checkbox" (click)="completion($event)" />
+          <input
+            type="checkbox"
+            (click)="toggle(i, task.id)"
+            [checked]="task.status"
+          />
         </td>
       </tr>
     </tbody>
