@@ -1,0 +1,83 @@
+<div class="flex items-center">
+  <div class="mr-10">
+    <input
+      type="text"
+      style="
+        width: 500px;
+        padding: 10px;
+        margin: 50px 0px;
+        margin-left: 10px;
+        border: 1px solid black;
+        border-radius: 5px 0 0 5px;
+      "
+      placeholder="Search product"
+      [(ngModel)]="inputText"
+    />
+    <button
+      style="
+        border: 1px solid black;
+        padding: 10px;
+        border-radius: 0 5px 5px 0;
+        background-color: rgb(37, 98, 156);
+        color: white;
+      "
+      (click)="onSubmit()"
+    >
+      Search
+    </button>
+  </div>
+
+  <div class="mr-10">
+    <select
+      name="sortPrice"
+      id="sortPrice"
+      style="padding: 10px; border: 1px solid black; border-radius: 5px"
+      [(ngModel)]="sortByPrice"
+      (click)="sortBy('price', $event)"
+    >
+      <option value="Sort By Price">Sort By Price</option>
+      <option value="High To Low">High To Low</option>
+      <option value="Low To High">Low To High</option>
+    </select>
+  </div>
+  <div>
+    <select
+      name="sortPrice"
+      id="sortPrice"
+      style="padding: 10px; border: 1px solid black; border-radius: 5px"
+      [(ngModel)]="sortByQuantity"
+      (click)="sortBy('quantity', $event)"
+    >
+      <option value="Sort By Quantity">Sort By Quantity</option>
+      <option value="High To Low">High To Low</option>
+      <option value="Low To High">Low To High</option>
+    </select>
+  </div>
+</div>
+<div class="overflow-x-auto">
+  <table
+    class="text-center table-auto w-full border-collapse border border-gray-800"
+  >
+    <thead class="bg-gray-200">
+      <tr>
+        <th class="px-4 py-2">Name</th>
+        <th class="px-4 py-2">Category</th>
+        <th class="px-4 py-2">Price</th>
+        <th class="px-4 py-2">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="bg-gray-100 border-b border-gray-300"
+        *ngFor="
+          let product of productData | filter : inputText | sort : asc : sortOn
+        "
+      >
+        <td class="px-4 py-2">{{ product.name }}</td>
+        <td class="px-4 py-2">{{ product.category }}</td>
+        <td class="px-4 py-2">{{ product.price }}</td>
+        <td class="px-4 py-2">{{ product.quantity }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
